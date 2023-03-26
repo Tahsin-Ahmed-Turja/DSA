@@ -28,8 +28,8 @@ public:
 
     int pop()
     {
-        return a[tos--];
         size--;
+        return a[tos--];
     }
 
     int top()
