@@ -4,58 +4,54 @@ using namespace std;
 class node {
 public:
     int data;
-    node* pre;
     node* next;
 
     node(int x) {
         data = x;
-        pre = NULL;
         next = NULL;
     }
 };
 
-class myqueue {
+class myqueue{
 public:
     node* front;
     node* rear;
     int size;
 
     myqueue() {
-        front = new node(0);
+        front = NULL;
         rear = NULL;
         size = 0;
     }
 
     void push(int x) {
-        if (size == 0) {
-            rear = new node(x);
-            front->next = rear;
-        }
-        else {
-            node* temp = new node(x);
-            rear->next = temp;
-            rear = temp;
-        }
-        size++;
+       node *tem = new node(x);
+       if (rear == NULL) {
+           front = rear = tem;
+       } else {
+           rear->next = tem;
+           rear = tem;
+       }
+       size++;
     }
 
     int pop() {
         if (!isempty()) {
             size--;
-            node* temp = front->next;
-            int res = temp->data;
-            front->next = temp->next;
-            delete(temp);
-            if (size == 0) {
+            node *tem = front;
+            front = front->next;
+            if (front == NULL) {
                 rear = NULL;
             }
+            int res = tem->data;
+            delete(tem);
             return res;
         }
     }
 
     int top() {
         if (!isempty()) {
-            return front->next->data;
+            return front->data;
         }
     }
 
