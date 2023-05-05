@@ -48,6 +48,33 @@ int partition(int array[], int low, int high) {
   return (i + 1);
 }
 
+int partitionl(int array[], int low, int high) {
+    // select the leftmost element as pivot
+    int pivot = array[low];
+
+    // pointer for greater element
+    int i = low;
+
+    // traverse each element of the array
+    // compare them with the pivot
+    for (int j = low + 1; j <= high; j++) {
+        if (array[j] <= pivot) {
+            // if element smaller than pivot is found
+            // swap it with the element pointed by i
+            i++;
+            // swap element at i with element at j
+            swap(&array[i], &array[j]);
+        }
+    }
+
+    // swap pivot with the element at i
+    swap(&array[low], &array[i]);
+
+    // return the partition point
+    return i;
+}
+
+
 void quickSort(int array[], int low, int high) {
   if (low < high) {
       
