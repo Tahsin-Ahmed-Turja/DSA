@@ -60,7 +60,7 @@ int main(){
     s.push("Hello Takrim");
     s.push("Say, hello tasnim");
     s.push("Say, hi bushra");
-    s.push("say, love u alia");
+    s.push("say, hi alia");
     cout << s.top() << endl;
     cout << s.pop()<< endl;
     cout << s.top()<< endl;
