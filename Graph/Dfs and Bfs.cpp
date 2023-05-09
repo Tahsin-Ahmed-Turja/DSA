@@ -3,9 +3,11 @@
 using namespace std;
 
 // Definition for a node in the graph
-struct Node {
+class Node {
+public:
     int value;
     Node* next;
+
     Node(int v) : value(v), next(nullptr) {}
 };
 
